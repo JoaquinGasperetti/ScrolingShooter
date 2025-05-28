@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class EnemyBullet : MonoBehaviour
 {
@@ -11,8 +12,7 @@ public class EnemyBullet : MonoBehaviour
     }
 
     void Update()
-    {
-        
+    {     
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
@@ -20,7 +20,9 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Destroy(gameObject); 
+
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
